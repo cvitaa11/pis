@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Restaurants - @ViewBag.Title</title>
+
+    <!-- CSS files -->
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/css/modern-business.css" rel="stylesheet">
+    <link href="~/jqueryui/jquery-ui.min.css" rel="stylesheet" />
+
+    <!-- JS files-->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/jqueryui/jquery-ui.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" asp-controller="Home" asp-action="Index">Restaurants</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Home" asp-action="About">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Home" asp-action="Services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Home" asp-action="Contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Restaurant" asp-action="Index">Restaurants</a>
+                    </li>
+                </ul>
+                <partial name="_LoginPartial" />
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        @RenderBody()
+    </div>
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; Restaurants Reservations</p>
+        </div>
+        <!-- /.container -->
+    </footer>
+    @RenderSection("Scripts", required: false) 
+</body>
+</html>

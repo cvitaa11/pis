@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Restaurant>
+@{
+    ViewBag.Title = "All restaurants";
+}
+<h1 class="mt-4 mb-3">
+    All restaurants
+</h1>
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        <a asp-controller="Home" asp-action="Index">Home</a>
+    </li>
+    <li class="breadcrumb-item active">All restaurants</li>
+</ol>
+@if (User.Identity.IsAuthenticated)
+{
+    <button class="btn btn-outline-secondary mb-3" id="add">Add new restaurant</button>
+}
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-4 col-sm-6 portfolio-item">
+            <div class="card h-100">
+                <a href="#"><img class="card-img-top" src="@item.CoverURL" alt=""></a>
+                <div class="card-body">
+                    <h4 class="card-title">
+                        <a asp-controller="Restaurant" asp-action="Details" asp-route-id="@item.Id">@item.Name</a>
+                    </h4>
+                    <p class="card-text">@item.Description</p>
+                </div>
+                @if (User.Identity.IsAuthenticated)
+                {<div class="row ml-2 mb-2">
+                  <a class="btn btn-outline-warning" asp-action="Update" asp-route-id="@item.Id">Edit</a>&nbsp;&nbsp;
+                  <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </div>
+                }
+            </div>            
+        </div>
+    }
+</div>
+<script>
+    $('#add').click(function () {
+        window.location.href = "/Restaurant/Create"
+    });
+</script>

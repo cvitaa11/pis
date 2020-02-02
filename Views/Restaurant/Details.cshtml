@@ -1,0 +1,72 @@
+﻿@model Restaurant
+@{
+    ViewBag.Title = "Details";
+}
+<h1 class="mt-4 mb-3">
+    Details
+    <small>@Model.Name</small>
+</h1>
+
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        <a asp-controller="Home" asp-action="Index">Home</a>
+    </li>
+    <li class="breadcrumb-item active">Details</li>
+</ol>
+
+<!-- Portfolio Item Row -->
+<div class="row">
+
+    <div class="col-md-8">
+        <img class="img-fluid" src="@Model.CoverURL" style="width: 750 !important; height: 500 !important;" alt="">
+    </div>
+
+    <div class="col-md-4">
+        <h3 class="my-3">Description</h3>
+        <p>@Model.Description</p>
+        <h3 class="my-3">House specialties</h3>
+        <ul>
+            <li>@Model.Specialities1</li>
+            <li>@Model.Specialities2</li>
+            <li>@Model.Specialities3</li>            
+        </ul>
+        You like what you see?&nbsp;&nbsp;
+        <button class="btn btn-sm btn-primary" id="reserve">Reserve</button>
+    </div>
+
+</div>
+<!-- /.row -->
+<!-- Related Projects Row -->
+<h3 class="my-4">Food is the foundation of happiness</h3>
+
+<div class="row">
+
+    <div class="col-md-3 col-sm-6 mb-4">
+        <a href="#">
+            <img class="img-fluid" src="http://grandparentsguide.com/wp-content/uploads/2016/11/pumpkin-pie2.jpg" alt="">
+        </a>
+    </div>
+
+    <div class="col-md-3 col-sm-6 mb-4">
+        <a href="#">
+            <img class="img-fluid" src="https://thissillygirlskitchen.com/wp-content/uploads/2016/07/No-Bake-Oreo-Bomb-Pie-from-This-Silly-Girls-Kitchen-feature-1-500x300.jpg" alt="">
+        </a>
+    </div>
+
+    <div class="col-md-3 col-sm-6 mb-4">
+        <a href="#">
+            <img class="img-fluid" src="https://www.strudelandschnitzel.com/wp-content/uploads/2019/06/Plum-cake-500x300.jpg" alt="">
+        </a>
+    </div>
+
+    <div class="col-md-3 col-sm-6 mb-4">
+        <a href="#">
+            <img class="img-fluid" src="https://www.bethlehemhealth.co.nz/image/cache/catalog/black-sesame-choc-cake-500x300-crop.jpg" alt="">
+        </a>
+    </div>
+</div>
+<script>
+    $('#reserve').on('click', function () {
+        window.location.href = "/Restaurant/Reservation";
+    });
+</script>
