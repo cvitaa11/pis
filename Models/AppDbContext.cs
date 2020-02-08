@@ -16,6 +16,7 @@ namespace RestaurantsReservations.Models
         public DbSet<IdentityUser> IdentityUsers { get; set; }
         public DbSet<IdentityUserClaim<string>> IdentityUserClaim { get; set; }
         public DbSet<Restaurant> Restaurants { get; set; }
+        public DbSet<Reservation> Reservations { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

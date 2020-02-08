@@ -22,5 +22,9 @@ namespace RestaurantsReservations.Repository
         {
            return _context.Restaurants.ToList();          
         }
+        public IEnumerable<Reservation> GetReservations()
+        {
+            return _context.Reservations.ToList();
+        }
     }
 }

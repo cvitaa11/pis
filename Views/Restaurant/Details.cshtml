@@ -28,10 +28,10 @@
         <ul>
             <li>@Model.Specialities1</li>
             <li>@Model.Specialities2</li>
-            <li>@Model.Specialities3</li>            
+            <li>@Model.Specialities3</li>
         </ul>
         You like what you see?&nbsp;&nbsp;
-        <button class="btn btn-sm btn-primary" id="reserve">Reserve</button>
+        <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#exampleModal">Reserve</button>
     </div>
 
 </div>
@@ -65,8 +65,71 @@
         </a>
     </div>
 </div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Reservation</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="reservation">
+                    <input type="hidden" value="@Model.Id" id="restId"  />
+                    <div class="form-group">
+                        <label class="form-check-label">First name:</label>
+                        <input type="text" class="form-control" id="firstName" placeholder="First name" />
+                    </div>
+                    <div class="form-group">
+                        <label class="form-check-label">Last name:</label>
+                        <input type="text" class="form-control" id="lastName" placeholder="Last name" />
+                    </div>
+                    <div class="form-group">
+                        <label class="form-check-label">Date:</label>
+                        <input id="date" type="text" class="form-control" placeholder="Date" autocomplete="off" />
+                    </div>
+                    <div class="form-group">
+                        <label class="form-check-label">Meal:</label>
+                        <select class="form-control" id="meal">
+                            <option selected disabled>Choose your meal</option>
+                            <option value="Breakfast">Breakfast</option>
+                            <option value="Lunch">Lunch</option>
+                            <option value="Dinner">Dinner</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancle</button>
+                <button type="button" class="btn btn-primary" id="confirm">Confirm</button>
+            </div>
+        </div>
+    </div>
+</div>
 <script>
-    $('#reserve').on('click', function () {
-        window.location.href = "/Restaurant/Reservation";
-    });
+    $('#date').datepicker({ dateFormat: 'dd-mm-yy' });
+
+    $('#confirm').on('click', function (e) {       
+        e.preventDefault();        
+        $.ajax({
+            type: "POST",
+            url: "/Restaurant/Reservation",
+            data: {
+                'restId': $('#restId').val(),
+                'firstName': $('#firstName').val(),
+                'lastName': $('#lastName').val(),
+                'resDate': $('#date').val(),
+                'meal': $('#meal').val()
+            },
+            success: function (data) {
+                $('#exampleModal').modal('toggle');
+                window.location.href = "/Restaurant/Index";
+            },
+            error: function (error) {
+                console.error(error);
+            }
+        });
+    })
 </script>

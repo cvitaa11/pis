@@ -111,12 +111,35 @@ namespace RestaurantsReservations.Controllers
         #endregion
 
         #region reservation
-            [Authorize]
-            public IActionResult Reservation()
+        [HttpPost]
+        public async Task<IActionResult> Reservation(int restId, string firstName, string lastName, DateTime resDate, string meal)
+        {
+            var reservation = new Reservation()
             {
-                return View();
+                RestaurantId = restId,
+                FirstName = firstName,
+                LastName = lastName,
+                Date = resDate,
+                Meal = meal
+            };
+
+            TryValidateModel(reservation);
+
+            if (ModelState.IsValid)
+            {
+                _context.Reservations.Add(reservation);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Index");
             }
-            #endregion
+            return BadRequest();
+        }
+
+        public IActionResult AllReservations()
+        {
+            var reservations = _restaurantRepository.GetReservations();
+            return View(reservations);
+        }
+        #endregion
 
         #endregion
     }

@@ -134,7 +134,6 @@ C:\Users\User\source\repos\RestaurantsReservations\obj\Debug\netcoreapp3.0\Razor
 C:\Users\User\source\repos\RestaurantsReservations\obj\Debug\netcoreapp3.0\Razor\Views\Home\Services.cshtml.g.cs
 C:\Users\User\source\repos\RestaurantsReservations\obj\Debug\netcoreapp3.0\Razor\Views\Restaurant\Details.cshtml.g.cs
 C:\Users\User\source\repos\RestaurantsReservations\obj\Debug\netcoreapp3.0\Razor\Views\Restaurant\Index.cshtml.g.cs
-C:\Users\User\source\repos\RestaurantsReservations\obj\Debug\netcoreapp3.0\Razor\Views\Restaurant\Reservation.cshtml.g.cs
 C:\Users\User\source\repos\RestaurantsReservations\obj\Debug\netcoreapp3.0\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\User\source\repos\RestaurantsReservations\obj\Debug\netcoreapp3.0\Razor\Views\Shared\_CookieConsentPartial.cshtml.g.cs
 C:\Users\User\source\repos\RestaurantsReservations\obj\Debug\netcoreapp3.0\Razor\Views\Shared\_Layout.cshtml.g.cs
@@ -149,3 +148,4 @@ C:\Users\User\source\repos\RestaurantsReservations\obj\Debug\netcoreapp3.0\Resta
 C:\Users\User\source\repos\RestaurantsReservations\obj\Debug\netcoreapp3.0\RestaurantsReservations.pdb
 C:\Users\User\source\repos\RestaurantsReservations\obj\Debug\netcoreapp3.0\Razor\Views\Restaurant\Update.cshtml.g.cs
 C:\Users\User\source\repos\RestaurantsReservations\obj\Debug\netcoreapp3.0\Razor\Views\Restaurant\Create.cshtml.g.cs
+C:\Users\User\source\repos\RestaurantsReservations\obj\Debug\netcoreapp3.0\Razor\Views\Restaurant\AllReservations.cshtml.g.cs

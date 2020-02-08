@@ -9,5 +9,6 @@ namespace RestaurantsReservations.Repository
     public interface IRestaurantRepository
     {
         IEnumerable<Restaurant> GetAllRestaurants();
+        IEnumerable<Reservation> GetReservations();
     }
 }
