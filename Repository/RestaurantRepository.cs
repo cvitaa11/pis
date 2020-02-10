@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using RestaurantsReservations.Models;
 
 namespace RestaurantsReservations.Repository
@@ -24,7 +25,7 @@ namespace RestaurantsReservations.Repository
         }
         public IEnumerable<Reservation> GetReservations()
         {
-            return _context.Reservations.ToList();
+            return _context.Reservations.Include("Restaurant").ToList();
         }
     }
 }

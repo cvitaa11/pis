@@ -15,6 +15,7 @@
     <table class="table">
         <thead>
             <tr>                
+                <th scope="col">Restaurant</th>
                 <th scope="col">Name</th>
                 <th scope="col">Date</th>
                 <th scope="col">Meal</th>                
@@ -24,6 +25,7 @@
             @foreach (var item in Model)
             {             
                 <tr>
+                    <th>@item.Restaurant.Name</th>
                     <th>@item.FirstName @item.LastName</th>
                     <td>@item.Date.ToShortDateString()</td>
                     <td>@item.Meal</td>                    
