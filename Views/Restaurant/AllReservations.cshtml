@@ -28,7 +28,10 @@
                     <th>@item.Restaurant.Name</th>
                     <th>@item.FirstName @item.LastName</th>
                     <td>@item.Date.ToShortDateString()</td>
-                    <td>@item.Meal</td>                    
+                    <td>@item.Meal</td>
+                    <td>
+                    <a class="btn btn-danger" asp-controller="Restaurant" asp-action="RemoveReservation" asp-route-id="@item.Id">Delete</a>
+                    </td>
                 </tr>
             }
         </tbody>

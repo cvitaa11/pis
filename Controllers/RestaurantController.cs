@@ -133,11 +133,23 @@ namespace RestaurantsReservations.Controllers
             }
             return BadRequest();
         }
-
+        [Authorize]
         public IActionResult AllReservations()
         {
             var reservations = _restaurantRepository.GetReservations();
             return View(reservations);
+        }
+
+        public async Task<IActionResult> RemoveReservation(int id)
+        {
+            var reservation = _context.Reservations.SingleOrDefault(x => x.Id == id);
+            if (reservation != null)
+            {
+                _context.Reservations.Remove(reservation);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("AllReservations");
+            }
+            return BadRequest();
         }
         #endregion
 
