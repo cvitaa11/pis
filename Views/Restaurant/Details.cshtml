@@ -109,7 +109,10 @@
     </div>
 </div>
 <script>
-    $('#date').datepicker({ dateFormat: 'dd-mm-yy' });
+    $('#date').datepicker({
+        dateFormat: 'dd-mm-yy',
+        minDate: 0
+    });
 
     $('#confirm').on('click', function (e) {       
         e.preventDefault();        
