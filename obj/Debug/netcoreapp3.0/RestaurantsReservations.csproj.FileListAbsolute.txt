@@ -128,12 +128,17 @@ C:\Users\User\source\repos\RestaurantsReservations\obj\Debug\netcoreapp3.0\Razor
 C:\Users\User\source\repos\RestaurantsReservations\obj\Debug\netcoreapp3.0\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.cshtml.g.cs
 C:\Users\User\source\repos\RestaurantsReservations\obj\Debug\netcoreapp3.0\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
 C:\Users\User\source\repos\RestaurantsReservations\obj\Debug\netcoreapp3.0\Razor\Areas\Identity\Pages\_ViewStart.cshtml.g.cs
+C:\Users\User\source\repos\RestaurantsReservations\obj\Debug\netcoreapp3.0\Razor\Views\Administration\CreateRole.cshtml.g.cs
+C:\Users\User\source\repos\RestaurantsReservations\obj\Debug\netcoreapp3.0\Razor\Views\Administration\ListRoles.cshtml.g.cs
 C:\Users\User\source\repos\RestaurantsReservations\obj\Debug\netcoreapp3.0\Razor\Views\Home\About.cshtml.g.cs
 C:\Users\User\source\repos\RestaurantsReservations\obj\Debug\netcoreapp3.0\Razor\Views\Home\Contact.cshtml.g.cs
 C:\Users\User\source\repos\RestaurantsReservations\obj\Debug\netcoreapp3.0\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\User\source\repos\RestaurantsReservations\obj\Debug\netcoreapp3.0\Razor\Views\Home\Services.cshtml.g.cs
+C:\Users\User\source\repos\RestaurantsReservations\obj\Debug\netcoreapp3.0\Razor\Views\Restaurant\AllReservations.cshtml.g.cs
+C:\Users\User\source\repos\RestaurantsReservations\obj\Debug\netcoreapp3.0\Razor\Views\Restaurant\Create.cshtml.g.cs
 C:\Users\User\source\repos\RestaurantsReservations\obj\Debug\netcoreapp3.0\Razor\Views\Restaurant\Details.cshtml.g.cs
 C:\Users\User\source\repos\RestaurantsReservations\obj\Debug\netcoreapp3.0\Razor\Views\Restaurant\Index.cshtml.g.cs
+C:\Users\User\source\repos\RestaurantsReservations\obj\Debug\netcoreapp3.0\Razor\Views\Restaurant\Update.cshtml.g.cs
 C:\Users\User\source\repos\RestaurantsReservations\obj\Debug\netcoreapp3.0\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\User\source\repos\RestaurantsReservations\obj\Debug\netcoreapp3.0\Razor\Views\Shared\_CookieConsentPartial.cshtml.g.cs
 C:\Users\User\source\repos\RestaurantsReservations\obj\Debug\netcoreapp3.0\Razor\Views\Shared\_Layout.cshtml.g.cs
@@ -146,6 +151,6 @@ C:\Users\User\source\repos\RestaurantsReservations\obj\Debug\netcoreapp3.0\Resta
 C:\Users\User\source\repos\RestaurantsReservations\obj\Debug\netcoreapp3.0\RestaurantsReservations.csproj.CopyComplete
 C:\Users\User\source\repos\RestaurantsReservations\obj\Debug\netcoreapp3.0\RestaurantsReservations.dll
 C:\Users\User\source\repos\RestaurantsReservations\obj\Debug\netcoreapp3.0\RestaurantsReservations.pdb
-C:\Users\User\source\repos\RestaurantsReservations\obj\Debug\netcoreapp3.0\Razor\Views\Restaurant\Update.cshtml.g.cs
-C:\Users\User\source\repos\RestaurantsReservations\obj\Debug\netcoreapp3.0\Razor\Views\Restaurant\Create.cshtml.g.cs
-C:\Users\User\source\repos\RestaurantsReservations\obj\Debug\netcoreapp3.0\Razor\Views\Restaurant\AllReservations.cshtml.g.cs
+C:\Users\User\source\repos\RestaurantsReservations\obj\Debug\netcoreapp3.0\Razor\Views\Administration\EditRole.cshtml.g.cs
+C:\Users\User\source\repos\RestaurantsReservations\obj\Debug\netcoreapp3.0\Razor\Views\Administration\EditUsersInRole.cshtml.g.cs
+C:\Users\User\source\repos\RestaurantsReservations\obj\Debug\netcoreapp3.0\Razor\Views\Restaurant\MyReservations.cshtml.g.cs

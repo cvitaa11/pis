@@ -9,8 +9,14 @@
                 <h1 class="text-center">Create restaurant</h1>
             </div>
             <div class="card-body">
-                <form id="reservation">
-                    <div asp-validation-summary="All" class="text-danger"></div>
+                <form id="restaurant">
+                    <div class="form-group">
+                        <label class="form-check-label" asp-for="UserId">Admin:</label>
+                        <select class="form-control" id="adminSelector">
+                            <option selected disabled>Choose admin</option>
+                        </select>
+                        <span class="text-danger" asp-validation-for="UserId"></span>
+                    </div>
                     <div class="form-group">
                         <label class="form-check-label" asp-for="Name">Name:</label>
                         <input type="text" class="form-control" asp-for="Name" />
@@ -52,11 +58,26 @@
     </div>
 </div>
 <script>
+    $.ajax({
+        url: "/Restaurant/GetAllAdmins",
+        type: "GET",
+        success: function (data) {
+            data.forEach(function (object) {
+                $('#adminSelector').append(`<option value="${object.id}">${object.userName}</option>`)
+            });
+        },
+        error: function (error) {
+            console.error(error);
+        }
+    });
+
     $('#submit').on('click', function (e) {
         e.preventDefault();
-        var formData = $('#reservation').serialize();
+        var formData = $('#restaurant').serialize();
+        var formStatus = $('#restaurant').validate().form();
 
-        $.ajax({
+        if (formStatus) {
+            $.ajax({
             type: "POST",
             url: "/Restaurant/Create",
             data: formData,
@@ -67,5 +88,6 @@
                 console.log(error);
             }
         });
+        }        
     });
 </script>

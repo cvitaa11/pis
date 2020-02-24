@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Reservation>
+@{
+    ViewBag.Title = "My reservations";
+}
+<h1 class="mt-4 mb-3">
+    All reservations
+</h1>
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        <a asp-controller="Home" asp-action="Index">Home</a>
+    </li>
+    <li class="breadcrumb-item active">All reservations</li>
+</ol>
+<div class="row">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Restaurant</th>
+                <th scope="col">Name</th>
+                <th scope="col">Date</th>
+                <th scope="col">Meal</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <th>@item.Restaurant.Name</th>
+                    <th>@item.FirstName @item.LastName</th>
+                    <td>@item.Date.ToShortDateString()</td>
+                    <td>@item.Meal</td>
+                    <td>
+                        <a class="btn btn-danger" asp-controller="Restaurant" asp-action="RemoveReservation" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<button class="btn btn-success" id="export">Excel download</button>
+<script>
+    $('#export').on('click', function (e) {
+        e.preventDefault();
+
+        $('table').table2excel({
+            name: "Reservations",
+            filename: "Reservations.xls"
+        });
+    });
+</script>

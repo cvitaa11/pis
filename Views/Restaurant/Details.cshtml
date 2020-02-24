@@ -39,32 +39,6 @@
 <!-- Related Projects Row -->
 <h3 class="my-4">Food is the foundation of happiness</h3>
 
-<div class="row">
-
-    <div class="col-md-3 col-sm-6 mb-4">
-        <a href="#">
-            <img class="img-fluid" src="http://grandparentsguide.com/wp-content/uploads/2016/11/pumpkin-pie2.jpg" alt="">
-        </a>
-    </div>
-
-    <div class="col-md-3 col-sm-6 mb-4">
-        <a href="#">
-            <img class="img-fluid" src="https://thissillygirlskitchen.com/wp-content/uploads/2016/07/No-Bake-Oreo-Bomb-Pie-from-This-Silly-Girls-Kitchen-feature-1-500x300.jpg" alt="">
-        </a>
-    </div>
-
-    <div class="col-md-3 col-sm-6 mb-4">
-        <a href="#">
-            <img class="img-fluid" src="https://www.strudelandschnitzel.com/wp-content/uploads/2019/06/Plum-cake-500x300.jpg" alt="">
-        </a>
-    </div>
-
-    <div class="col-md-3 col-sm-6 mb-4">
-        <a href="#">
-            <img class="img-fluid" src="https://www.bethlehemhealth.co.nz/image/cache/catalog/black-sesame-choc-cake-500x300-crop.jpg" alt="">
-        </a>
-    </div>
-</div>
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -102,7 +76,7 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancle</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                 <button type="button" class="btn btn-primary" id="confirm">Confirm</button>
             </div>
         </div>
@@ -114,8 +88,8 @@
         minDate: 0
     });
 
-    $('#confirm').on('click', function (e) {       
-        e.preventDefault();        
+    $('#confirm').on('click', function (e) {
+        e.preventDefault();       
         $.ajax({
             type: "POST",
             url: "/Restaurant/Reservation",
@@ -133,6 +107,6 @@
             error: function (error) {
                 console.error(error);
             }
-        });
-    })
+        });            
+    });
 </script>

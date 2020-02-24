@@ -1,6 +1,10 @@
-﻿@model IEnumerable<Restaurant>
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@model IEnumerable<Restaurant>
 @{
-    ViewBag.Title = "All restaurants";
+    ViewBag.Title = "All restaurants";  
+    var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
 }
 <h1 class="mt-4 mb-3">
     All restaurants
@@ -11,10 +15,14 @@
     </li>
     <li class="breadcrumb-item active">All restaurants</li>
 </ol>
-@if (User.Identity.IsAuthenticated)
+@if (User.IsInRole("SuperAdmin"))
 {
     <button class="btn btn-outline-secondary mb-3" id="add">Add new restaurant</button>
     <a class="btn btn-outline-secondary mb-3" asp-controller="Restaurant" asp-action="AllReservations">All reservations</a>
+}
+@if (User.IsInRole("Admin"))
+{
+    <a class="btn btn-outline-info mb-3" asp-controller="Restaurant" asp-action="MyReservations" asp-route-id="@userId">My reservations</a>
 }
 <div class="row">
     @foreach (var item in Model)
@@ -28,13 +36,13 @@
                     </h4>
                     <p class="card-text">@item.Description</p>
                 </div>
-                @if (User.Identity.IsAuthenticated)
+                @if (User.IsInRole("SuperAdmin"))
                 {<div class="row ml-2 mb-2">
-                  <a class="btn btn-outline-warning" asp-action="Update" asp-route-id="@item.Id">Edit</a>&nbsp;&nbsp;
-                  <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                </div>
+                        <a class="btn btn-outline-warning" asp-action="Update" asp-route-id="@item.Id">Edit</a>&nbsp;&nbsp;
+                        <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </div>
                 }
-            </div>            
+            </div>
         </div>
     }
 </div>

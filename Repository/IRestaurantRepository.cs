@@ -10,5 +10,6 @@ namespace RestaurantsReservations.Repository
     {
         IEnumerable<Restaurant> GetAllRestaurants();
         IEnumerable<Reservation> GetReservations();
+        IEnumerable<Reservation> GetMyReservations(string userId);
     }
 }

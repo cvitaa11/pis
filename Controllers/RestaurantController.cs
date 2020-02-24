@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RestaurantsReservations.Models;
@@ -15,12 +16,14 @@ namespace RestaurantsReservations.Controllers
         #region fields
         private readonly IRestaurantRepository _restaurantRepository;
         private readonly AppDbContext _context;
+        private readonly IUserRepository _userRepository;
         #endregion
         #region ctor
-        public RestaurantController(IRestaurantRepository restaurantRepository, AppDbContext context)
+        public RestaurantController(IRestaurantRepository restaurantRepository, AppDbContext context, IUserRepository userRepository)
         {
             _restaurantRepository = restaurantRepository;
             _context = context;
+            _userRepository = userRepository;
         }
         #endregion
         #region implementation
@@ -133,11 +136,18 @@ namespace RestaurantsReservations.Controllers
             }
             return BadRequest();
         }
-        [Authorize]
+        [Authorize(Roles = "SuperAdmin")]
         public IActionResult AllReservations()
         {
             var reservations = _restaurantRepository.GetReservations();
             return View(reservations);
+        }
+
+        [Authorize(Roles = "Admin")]
+        public IActionResult MyReservations(string userId)
+        {
+            var myReservations = _restaurantRepository.GetMyReservations(userId);
+            return View(myReservations);
         }
 
         public async Task<IActionResult> RemoveReservation(int id)
@@ -150,6 +160,14 @@ namespace RestaurantsReservations.Controllers
                 return RedirectToAction("AllReservations");
             }
             return BadRequest();
+        }
+        #endregion
+
+        #region getAdmins
+        public async Task<IList<IdentityUser>> GetAllAdmins()
+        {
+            var admins = await _userRepository.GetAllAdmins();
+            return admins;
         }
         #endregion
 

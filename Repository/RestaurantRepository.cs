@@ -27,5 +27,10 @@ namespace RestaurantsReservations.Repository
         {
             return _context.Reservations.Include("Restaurant").Where(x=> x.Date >= DateTime.Today).ToList();
         }
+
+        public IEnumerable<Reservation> GetMyReservations(string userId)
+        {
+            return _context.Reservations.Include("Restaurant").Where(x => x.Date >= DateTime.Today && x.Restaurant.UserId == userId).ToList();
+        }
     }
 }
